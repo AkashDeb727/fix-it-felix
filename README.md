@@ -1,50 +1,107 @@
 # 🛠️ Fix-It-Felix
 
-An AI-powered civic issue reporting platform that enables citizens to report infrastructure problems such as potholes, broken streetlights, garbage dumps, water leakage, and more.
-
-The platform automatically analyzes complaint images using Google Gemini AI, categorizes the issue, determines its severity, and displays complaints on an interactive map for authorities to manage efficiently.
+> **An AI-powered civic issue reporting platform that helps citizens report infrastructure problems while enabling local authorities to prioritize and resolve them efficiently.**
 
 ---
 
-## 🚀 Live Demo
+## 🌐 Live Demo
 
-🌐 **Website:** http://ai-civic-frontend.s3-website.ap-south-1.amazonaws.com
+🔗 **Website:** http://ai-civic-frontend.s3-website.ap-south-1.amazonaws.com
 
 ---
 
-## ✨ Features
+## 📖 Overview
 
-- 📸 Upload complaint with image
+**Fix-It-Felix** is a serverless web application that bridges the communication gap between citizens and municipal authorities.
+
+Citizens can report civic issues such as:
+
+- 🛣️ Potholes
+- 💡 Broken streetlights
+- 🗑️ Garbage dumps
+- 🚰 Water leakage
+- 🌳 Fallen trees
+- 🚧 Road damage
+- ⚠️ Other public infrastructure issues
+
+Instead of manually classifying every complaint, **Google Gemini AI** analyzes the uploaded image, identifies the issue type, estimates its severity, and generates an AI-powered description, enabling authorities to respond faster and prioritize critical cases.
+
+---
+
+# ✨ Features
+
+## 👥 Citizen Portal
+
+- 📸 Upload complaint images
+- 📍 Automatic location selection on map
 - 🤖 AI-powered image analysis using Google Gemini
 - 🧠 Automatic issue categorization
-- 📍 Location-based complaint mapping
-- 🗺️ Interactive map with complaint markers
-- 👨‍💼 Admin dashboard for authorities
+- 📝 AI-generated complaint description
+- 🚨 AI severity assessment
+- 📤 One-click complaint submission
+
+---
+
+## 🏛️ Admin Dashboard
+
 - 📊 Real-time complaint statistics
-- 🔄 Complaint status tracking
-- ☁️ Serverless AWS backend
+- 🗺️ Interactive complaint map
+- 📌 Complaint location visualization
+- 📷 View uploaded complaint images
+- 🔄 Update complaint status
+- 📈 Track pending, in-progress, and resolved complaints
 
 ---
 
-## 🏗️ Architecture
+## 🤖 AI Capabilities
 
-Frontend (React + TypeScript)
-↓
-Amazon S3 Static Website Hosting
-↓
-API Gateway
-↓
-AWS Lambda
-↓
-Amazon DynamoDB
-↓
+- Image understanding using **Google Gemini**
+- Infrastructure issue detection
+- Automatic categorization
+- Severity prediction
+- Context-aware complaint description generation
+
+---
+
+# 🏗️ Architecture
+
+```text
+Citizen
+    │
+    ▼
+React + TypeScript Frontend
+    │
+Hosted on Amazon S3
+    │
+    ▼
+Amazon API Gateway
+    │
+    ▼
+AWS Lambda Functions
+    │
+    ▼
 Google Gemini AI
+    │
+    ▼
+Amazon DynamoDB
+```
 
 ---
 
-## 🛠️ Tech Stack
+# ☁️ AWS Services Used
+
+- Amazon S3
+- AWS Lambda
+- Amazon API Gateway
+- Amazon DynamoDB
+- IAM
+
+---
+
+# 🛠️ Tech Stack
 
 ### Frontend
+
 - React
 - TypeScript
 - Vite
@@ -52,58 +109,41 @@ Google Gemini AI
 - Leaflet Maps
 
 ### Backend
+
 - AWS Lambda
 - API Gateway
 - DynamoDB
 - Amazon S3
 
 ### AI
+
 - Google Gemini API
 
 ---
 
-## 📦 Installation
+# 🚀 Getting Started
 
-Clone the repository
+## Clone the repository
 
 ```bash
 git clone https://github.com/AkashDeb727/fix-it-felix.git
 ```
 
-Install dependencies
+# 🎯 Future Enhancements
 
-```bash
-npm install
-```
-
-Create an environment file
-
-```env
-GEMINI_API_KEY=your_api_key
-```
-
-Run locally
-
-```bash
-npm run dev
-```
+- 📱 Mobile application
+- 🔔 Real-time complaint notifications
+- 🛰️ Satellite imagery integration
+- 📊 Predictive hotspot analysis
+- 🗣️ Multilingual support
+- 🤖 AI-based duplicate complaint detection
 
 ---
 
-## 📸 Screenshots
+# 👥 Team
 
-(Add screenshots here)
+**Project Name:** **Fix-It-Felix**
 
----
-
-## 👥 Team
-
-Built during the MLH Hackathon.
-
-Project Name: **Fix-It-Felix**
+Developed during the **MLH Hackathon**.
 
 ---
-
-## 📄 License
-
-MIT License
