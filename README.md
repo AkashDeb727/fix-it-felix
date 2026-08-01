@@ -8,7 +8,7 @@ The platform automatically analyzes complaint images using Google Gemini AI, cat
 
 ## 🚀 Live Demo
 
-🌐 Website: [https://YOUR-S3-WEBSITE-LINK](https://ai-civic-frontend.s3.ap-south-1.amazonaws.com/index.html)
+🌐 **Website:** http://ai-civic-frontend.s3-website.ap-south-1.amazonaws.com
 
 ---
 
