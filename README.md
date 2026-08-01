@@ -1,20 +1,109 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🛠️ Fix-It-Felix
 
-# Run and deploy your AI Studio app
+An AI-powered civic issue reporting platform that enables citizens to report infrastructure problems such as potholes, broken streetlights, garbage dumps, water leakage, and more.
 
-This contains everything you need to run your app locally.
+The platform automatically analyzes complaint images using Google Gemini AI, categorizes the issue, determines its severity, and displays complaints on an interactive map for authorities to manage efficiently.
 
-View your app in AI Studio: https://ai.studio/apps/107b9af4-90cc-47f1-9642-d142965ba38e
+---
 
-## Run Locally
+## 🚀 Live Demo
 
-**Prerequisites:**  Node.js
+🌐 Website: [https://YOUR-S3-WEBSITE-LINK](https://ai-civic-frontend.s3.ap-south-1.amazonaws.com/index.html)
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## ✨ Features
+
+- 📸 Upload complaint with image
+- 🤖 AI-powered image analysis using Google Gemini
+- 🧠 Automatic issue categorization
+- 📍 Location-based complaint mapping
+- 🗺️ Interactive map with complaint markers
+- 👨‍💼 Admin dashboard for authorities
+- 📊 Real-time complaint statistics
+- 🔄 Complaint status tracking
+- ☁️ Serverless AWS backend
+
+---
+
+## 🏗️ Architecture
+
+Frontend (React + TypeScript)
+↓
+Amazon S3 Static Website Hosting
+↓
+API Gateway
+↓
+AWS Lambda
+↓
+Amazon DynamoDB
+↓
+Google Gemini AI
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Leaflet Maps
+
+### Backend
+- AWS Lambda
+- API Gateway
+- DynamoDB
+- Amazon S3
+
+### AI
+- Google Gemini API
+
+---
+
+## 📦 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/AkashDeb727/fix-it-felix.git
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Create an environment file
+
+```env
+GEMINI_API_KEY=your_api_key
+```
+
+Run locally
+
+```bash
+npm run dev
+```
+
+---
+
+## 📸 Screenshots
+
+(Add screenshots here)
+
+---
+
+## 👥 Team
+
+Built during the MLH Hackathon.
+
+Project Name: **Fix-It-Felix**
+
+---
+
+## 📄 License
+
+MIT License
