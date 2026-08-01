@@ -1,4 +1,4 @@
-# 🛠️ Fix-It-Felix
+# 🛠️ Fix-It Felix
 
 > **An AI-powered civic issue reporting platform that helps citizens report infrastructure problems while enabling local authorities to prioritize and resolve them efficiently.**
 
