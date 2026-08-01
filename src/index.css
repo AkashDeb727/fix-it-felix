@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #F7F5F0;
+    color: #3A3F3B;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+.urban-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(58, 63, 59, 0.05);
+}
+
+.btn-terracotta {
+  background-color: #C86A53;
+  color: #FFFFFF;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-terracotta:hover {
+  background-color: #B25A44;
+}
+
+.btn-sage {
+  background-color: #6B8E7B;
+  color: #FFFFFF;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-sage:hover {
+  background-color: #577765;
+}
+
+/* Custom Leaflet popup overrides */
+.leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #3A3F3B !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(58, 63, 59, 0.12) !important;
+  padding: 4px !important;
+}
+
+.leaflet-popup-tip {
+  background: #FFFFFF !important;
+}

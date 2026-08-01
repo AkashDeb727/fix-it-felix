@@ -1,0 +1,6 @@
+{
+  "name": "Fix-It Felix",
+  "description": "Fix-It Felix - AI-powered municipal civic maintenance platform with automatic Gemini AI categorization, department assignment, email notifications, interactive Leaflet map, admin dashboard, and AI chatbot.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
