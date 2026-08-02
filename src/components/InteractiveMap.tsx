@@ -240,10 +240,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       {/* Geographical Header & Primary Metrics */}
       <div className="space-y-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6B8E7B]/10 border border-[#6B8E7B]/20 text-[#6B8E7B] text-xs font-semibold mb-2">
-            <MapPin className="w-3.5 h-3.5 text-[#C86A53]" />
-            <span>{userLocation?.locationName || 'Detecting Location...'} • Local Area Overview</span>
-          </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#3A3F3B] tracking-tight">
             Community Maintenance Map & Issues
           </h2>

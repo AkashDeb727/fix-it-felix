@@ -122,10 +122,9 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={onResetData}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#F7F5F0] hover:bg-[#EAE6DF] text-xs font-medium text-[#3A3F3B] transition-colors border border-[#E5E0D8]"
-              title="Reset DynamoDB complaints to initial seed"
             >
               <RefreshCw className="w-3.5 h-3.5 text-[#6B8E7B]" />
-              <span>Reset Demo Seed</span>
+              <span>Refresh</span>
             </button>
           </div>
 

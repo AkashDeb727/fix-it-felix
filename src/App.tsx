@@ -57,7 +57,7 @@ export default function App() {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
         try {
-          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=en`);
           if (res.ok) {
             const data = await res.json();
             const addr = data.address || {};
@@ -275,9 +275,6 @@ export default function App() {
       <footer className="border-t border-[#E5E0D8] bg-white py-6 px-6 text-center text-xs text-[#3A3F3B]/60">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-medium">Fix-It Felix • {userLocation.locationName}</p>
-          <p className="text-[11px] text-[#3A3F3B]/50 font-mono">
-            AWS Production API: {AWS_BASE_URL}
-          </p>
         </div>
       </footer>
 

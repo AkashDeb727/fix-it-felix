@@ -22,10 +22,10 @@ export const CitizenComplaintForm: React.FC<CitizenComplaintFormProps> = ({
   const [description, setDescription] = useState('');
   
   // Detailed Structured Address State
-  const [streetAddress, setStreetAddress] = useState('45 MG Road');
-  const [landmark, setLandmark] = useState('Near Landmark');
-  const [postalCode, setPostalCode] = useState('560001');
-  const [specificLocation, setSpecificLocation] = useState('Main Area');
+  const [streetAddress, setStreetAddress] = useState('');
+  const [landmark, setLandmark] = useState('');
+  const [postalCode, setPostalCode] = useState('');
+  const [specificLocation, setSpecificLocation] = useState('');
 
   const [latitude, setLatitude] = useState<number>(userLocation?.lat || 37.7858);
   const [longitude, setLongitude] = useState<number>(userLocation?.lng || -122.4065);
@@ -232,7 +232,7 @@ export const CitizenComplaintForm: React.FC<CitizenComplaintFormProps> = ({
         setLongitude(lng);
         setIsLocating(false);
         try {
-          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=en`);
           if (res.ok) {
             const data = await res.json();
             const addr = data.address || {};
@@ -327,10 +327,10 @@ export const CitizenComplaintForm: React.FC<CitizenComplaintFormProps> = ({
     setCitizenName('');
     setTitle('');
     setDescription('');
-    setStreetAddress('45 MG Road');
-    setSpecificLocation('Gate 2');
-    setLandmark('Near Metro Station');
-    setPostalCode('560001');
+    setStreetAddress('');
+    setSpecificLocation('');
+    setLandmark('');
+    setPostalCode('');
     setPhotos([]);
     setSubmittedData(null);
   };
