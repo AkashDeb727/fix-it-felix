@@ -116,16 +116,6 @@ Amazon DynamoDB
 
 ---
 
-# 🚀 Getting Started
-
-## Clone the repository
-
-```bash
-git clone https://github.com/AkashDeb727/fix-it-felix.git
-```
-
----
-
 # 🎯 Future Enhancements
 
 - 📱 Mobile application
