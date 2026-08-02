@@ -124,18 +124,6 @@ Amazon DynamoDB
 git clone https://github.com/AkashDeb727/fix-it-felix.git
 ```
 
-## Install dependencies
-
-```bash
-npm install
-```
-
-## Start the development server
-
-```bash
-npm run dev
-```
-
 ---
 
 # 🎯 Future Enhancements
