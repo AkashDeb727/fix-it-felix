@@ -16,7 +16,7 @@
 
 Citizens can report infrastructure problems such as **potholes, broken streetlights, garbage dumps, water leakage, fallen trees, road damage, and other public infrastructure issues** by uploading an image and selecting the issue location.
 
-The platform uses **Google Gemini AI** to analyze complaint information, automatically categorize the issue, assess its severity, and generate a detailed complaint description. The resulting complaints are stored in AWS and made available through an administrative dashboard for efficient prioritization and management.
+The platform uses **Google Gemini AI** to automatically categorize the complaint, assess its severity, and generate a detailed complaint description. The resulting complaints are stored in AWS and made available through an administrative dashboard for efficient prioritization and management.
 
 When a new complaint is submitted, **Amazon SES** automatically sends a complaint notification email to the administrator/municipal authority.
 
@@ -207,7 +207,13 @@ This allows the administrator to receive complaint details immediately when a ne
 
 ## 📝 Report an Issue
 
-![Report an Issue](screenshots/frontend/report-issue.png)
+### Top Section
+
+![Report an Issue - Top](screenshots/frontend/report-issue-top.png)
+
+### Bottom Section
+
+![Report an Issue - Bottom](screenshots/frontend/report-issue-bottom.png)
 
 ---
 
@@ -235,7 +241,7 @@ The following screenshots show the AWS infrastructure used to deploy and operate
 
 ### AWS Lambda
 
-![AWS Lambda](screenshots/aws/lambda.png)
+![AWS Lambda Functions](screenshots/aws/lambda-functions.png)
 
 ### Amazon API Gateway
 
@@ -249,9 +255,7 @@ The following screenshots show the AWS infrastructure used to deploy and operate
 
 ![Amazon S3](screenshots/aws/s3.png)
 
-### Amazon SES
-
-![Amazon SES](screenshots/aws/ses.png)
+> Amazon SES is used for complaint email notifications. The resulting notification email is demonstrated in the **Complaint Notification Email** screenshot above.
 
 ---
 
@@ -301,14 +305,19 @@ The following screenshots show the AWS infrastructure used to deploy and operate
     │   └── updateStatus.py
     │
     ├── screenshots/
-    │   ├── frontend/
-    │   │   ├── home.png
-    │   │   ├── report-issue.png
-    │   │   ├── admin-dashboard.png
-    │   │   ├── chatbot.png
-    │   │   └── complaint-email.png
+    │   ├── aws/
+    │   │   ├── api-gateway.png
+    │   │   ├── dynamodb.png
+    │   │   ├── lambda-functions.png
+    │   │   └── s3.png
     │   │
-    │   └── aws/
+    │   └── frontend/
+    │       ├── admin-dashboard.png
+    │       ├── chatbot.png
+    │       ├── complaint-email.png
+    │       ├── home.png
+    │       ├── report-issue-bottom.png
+    │       └── report-issue-top.png
     │
     └── README.md
 
