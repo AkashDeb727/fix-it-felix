@@ -6,7 +6,7 @@
 
 ## 🌐 Live Demo
 
-🔗 **Website:** http://ai-civic-frontend.s3-website.ap-south-1.amazonaws.com
+🔗 **Website:** [http://ai-civic-frontend.s3-website.ap-south-1.amazonaws.com](http://ai-civic-frontend.s3-website.ap-south-1.amazonaws.com)
 
 ---
 
@@ -16,7 +16,9 @@
 
 Citizens can report infrastructure problems such as **potholes, broken streetlights, garbage dumps, water leakage, fallen trees, road damage, and other public infrastructure issues** by uploading an image and selecting the issue location.
 
-The platform uses **Google Gemini AI** to analyze complaint images, automatically categorize the issue, assess its severity, and generate a detailed complaint description. The resulting complaints are stored in AWS and made available through an administrative dashboard for efficient prioritization and management.
+The platform uses **Google Gemini AI** to analyze complaint information, automatically categorize the issue, assess its severity, and generate a detailed complaint description. The resulting complaints are stored in AWS and made available through an administrative dashboard for efficient prioritization and management.
+
+When a new complaint is submitted, **Amazon SES** automatically sends a complaint notification email to the administrator/municipal authority.
 
 ---
 
@@ -26,7 +28,7 @@ The platform uses **Google Gemini AI** to analyze complaint images, automaticall
 
 - 📸 Upload complaint images
 - 📍 Select complaint location using an interactive map
-- 🤖 AI-powered image analysis using Google Gemini
+- 🤖 AI-powered complaint processing using Google Gemini
 - 🧠 Automatic issue categorization
 - 📝 AI-generated complaint description
 - 🚨 AI-based severity assessment
@@ -40,21 +42,27 @@ The platform uses **Google Gemini AI** to analyze complaint images, automaticall
 - 📷 View uploaded complaint images
 - 🔄 Update complaint status
 - 📈 Track Pending, In Progress, and Resolved complaints
+- 📧 Receive email notifications for newly submitted complaints
 
 ### 🤖 AI Capabilities
 
--  Automatic complaint classification using Google Gemini
--  AI-powered severity assessment
--  AI-generated complaint/report descriptions
--  AI-powered chatbot for civic issue assistance
+- Automatic complaint classification using Google Gemini
+- AI-powered severity assessment
+- AI-generated complaint/report descriptions
+- AI-powered chatbot for civic issue assistance
+
+### 📧 Notifications
+
+- Automatic complaint notification emails using **Amazon SES**
+- Sends newly submitted complaint details to the administrator/municipal authority
 
 ---
 
 # 🏗️ Architecture
 
-The application follows a **serverless AWS architecture**, with Google Gemini providing AI-powered complaint analysis.
+The application follows a **serverless AWS architecture**, with Google Gemini providing AI-powered complaint processing and chatbot capabilities.
 
-![Fix-It Felix Architecture](architecture/architecture-diagram.png)
+![Fix-It Felix AWS Architecture](architecture/architecture-diagram.png)
 
 ### Architecture Flow
 
@@ -74,7 +82,42 @@ The application follows a **serverless AWS architecture**, with Google Gemini pr
        │
        ├── Amazon DynamoDB
        │
-       └── Amazon S3
+       ├── Amazon S3
+       │
+       └── Amazon SES
+              │
+              ▼
+       Administrator / Municipal Authority
+              │
+              ▼
+          Complaint Email
+
+### Complaint Submission Flow
+
+    Citizen
+       │
+       ▼
+    POST /submit
+       │
+       ▼
+    submitComplaint Lambda
+       │
+       ├──► Google Gemini API
+       │       ├── Classification
+       │       ├── Severity Assessment
+       │       └── Description Generation
+       │
+       ├──► Amazon S3
+       │       └── Complaint Image
+       │
+       ├──► Amazon DynamoDB
+       │       └── Complaint Metadata
+       │
+       └──► Amazon SES
+               │
+               ▼
+          Administrator
+          Complaint Email
 
 ---
 
@@ -86,7 +129,7 @@ Google Gemini is integrated into multiple parts of the application.
 
 When a citizen submits an issue:
 
-    Complaint Image + Information
+    Complaint Information
               │
               ▼
        submitComplaint Lambda
@@ -106,7 +149,38 @@ When a citizen submits an issue:
 
 ### AI Chatbot
 
-Gemini also powers the application's chatbot functionality through the `chatbotQuery` Lambda, allowing citizens to interact with the system and receive AI-generated responses.
+Gemini also powers the application's chatbot functionality through the `chatbotQuery` Lambda, allowing users to interact with the system and receive AI-generated responses based on civic complaint data.
+
+---
+
+# 📧 Amazon SES
+
+**Amazon Simple Email Service (SES)** is used to notify the administrator whenever a new civic complaint is submitted.
+
+    Citizen Complaint
+           │
+           ▼
+    submitComplaint Lambda
+           │
+           ▼
+       Amazon SES
+           │
+           ▼
+    Administrator Email
+
+The notification email contains important complaint information such as:
+
+- Complaint ID
+- Citizen name
+- Issue title
+- Category
+- Priority
+- Department
+- Location
+- Description
+- Complaint image URL
+
+This allows the administrator to receive complaint details immediately when a new issue is reported.
 
 ---
 
@@ -118,7 +192,7 @@ Gemini also powers the application's chatbot functionality through the `chatbotQ
 | **AWS Lambda** | Runs serverless backend logic |
 | **Amazon API Gateway** | Provides REST API endpoints |
 | **Amazon DynamoDB** | Stores complaint metadata and application data |
-| **Amazon SES** | Handles email notifications |
+| **Amazon SES** | Sends complaint notification emails to administrators |
 | **IAM** | Manages permissions and access between AWS services |
 
 ---
@@ -127,15 +201,13 @@ Gemini also powers the application's chatbot functionality through the `chatbotQ
 
 ## 🏠 Citizen Home
 
-![Home](screenshots/frontend/home.png)
+![Citizen Home](screenshots/frontend/home.png)
 
 ---
 
 ## 📝 Report an Issue
 
-![Report Issue](screenshots/frontend/report-issue-top.png)
-
-![Report Issue](screenshots/frontend/report-issue-bottom.png)
+![Report an Issue](screenshots/frontend/report-issue.png)
 
 ---
 
@@ -145,25 +217,41 @@ Gemini also powers the application's chatbot functionality through the `chatbotQ
 
 ---
 
+## 🤖 AI Chatbot
+
+![AI Chatbot](screenshots/frontend/chatbot.png)
+
+---
+
+## 📧 Complaint Notification Email
+
+![Complaint Notification Email](screenshots/frontend/complaint-email.png)
+
+---
+
 # ☁️ AWS Infrastructure
 
 The following screenshots show the AWS infrastructure used to deploy and operate the application.
 
 ### AWS Lambda
 
-![AWS Lambda](screenshots/aws/lambda-functions.png)
+![AWS Lambda](screenshots/aws/lambda.png)
 
 ### Amazon API Gateway
 
-![API Gateway](screenshots/aws/api-gateway.png)
+![Amazon API Gateway](screenshots/aws/api-gateway.png)
 
 ### Amazon DynamoDB
 
-![DynamoDB](screenshots/aws/dynamodb.png)
+![Amazon DynamoDB](screenshots/aws/dynamodb.png)
 
 ### Amazon S3
 
-![S3](screenshots/aws/s3.png)
+![Amazon S3](screenshots/aws/s3.png)
+
+### Amazon SES
+
+![Amazon SES](screenshots/aws/ses.png)
 
 ---
 
@@ -214,6 +302,12 @@ The following screenshots show the AWS infrastructure used to deploy and operate
     │
     ├── screenshots/
     │   ├── frontend/
+    │   │   ├── home.png
+    │   │   ├── report-issue.png
+    │   │   ├── admin-dashboard.png
+    │   │   ├── chatbot.png
+    │   │   └── complaint-email.png
+    │   │
     │   └── aws/
     │
     └── README.md
@@ -242,7 +336,7 @@ The frontend will be available at the local development URL provided by Vite.
 # 🔮 Future Enhancements
 
 - 📱 Mobile application
-- 🔔 Real-time complaint notifications
+- 🔔 Real-time status update notifications
 - 🌍 Multilingual support
 - 🤖 AI-based duplicate complaint detection
 - 📊 Predictive hotspot analysis
@@ -261,9 +355,10 @@ Developed during the **MLH Hackathon**.
 
 - Designed and implemented the serverless AWS architecture
 - Developed backend services using **AWS Lambda, API Gateway, DynamoDB, S3, SES, and IAM**
-- Integrated **Google Gemini AI** for image analysis and complaint processing
+- Integrated **Google Gemini AI** for complaint processing
 - Implemented AI-powered issue categorization, severity assessment, and description generation
 - Developed backend APIs for complaint submission, retrieval, dashboard statistics, and status management
+- Implemented **Amazon SES email notifications** for newly submitted complaints
 - Implemented the AI chatbot backend using Gemini
 - Configured and deployed AWS infrastructure
 - Integrated the backend with the frontend
