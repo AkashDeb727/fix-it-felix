@@ -43,12 +43,10 @@ The platform uses **Google Gemini AI** to analyze complaint images, automaticall
 
 ### 🤖 AI Capabilities
 
-- Image understanding using **Google Gemini**
-- Infrastructure issue detection
-- Automatic issue categorization
-- Severity assessment
-- AI-generated complaint descriptions
-- AI-powered chatbot for civic issue assistance
+-  Automatic complaint classification using Google Gemini
+-  AI-powered severity assessment
+-  AI-generated complaint/report descriptions
+-  AI-powered chatbot for civic issue assistance
 
 ---
 
